@@ -43,13 +43,22 @@
 
 @media (min-width: 1200px) {
   .hero-section {
-    background-position: center 62%;
+    background-position: center 68%;
   }
 }
 
 @media (min-width: 1700px) {
   .hero-section {
-    background-position: center 70%;
+    background-position: center 78%;
+  }
+
+  .reserve-center {
+    position: absolute;
+    top: 65vh;
+    left: 50%;
+    transform: translateX(-50%);
+    margin: 0;
+    z-index: 4;
   }
 }
 
@@ -67,7 +76,7 @@
 }
 
 .hero-top {
-  margin-top: 0.35rem;
+  margin-top: 0.2rem;
 }
 
 .hero-bottom {
@@ -104,7 +113,7 @@
 }
 
 .hero-morph {
-  margin-top: 0.7rem;
+  margin-top: 0.3rem;
 }
 
 .morphing-text {
@@ -149,9 +158,9 @@
 
 .logo-ticker {
   overflow: hidden;
-  margin: 0.4rem auto 0;
+  margin: 0.15rem auto 0;
   width: min(100%, clamp(520px, 64vw, 900px));
-  padding: 1.25rem clamp(0.6rem, 1.8vw, 1.2rem);
+  padding: 0.8rem clamp(0.55rem, 1.5vw, 1rem);
   -webkit-mask-image: linear-gradient(to right, transparent 0%, black 10%, black 90%, transparent 100%);
   mask-image: linear-gradient(to right, transparent 0%, black 10%, black 90%, transparent 100%);
 }
@@ -193,7 +202,7 @@
 .reserve-center {
   width: fit-content;
   max-width: calc(100% - 1.2rem);
-  margin: clamp(1.8rem, 8vh, 5rem) auto 0.9rem;
+  margin: 0.55rem auto 0.8rem;
   display: flex;
   align-items: center;
   justify-content: center;

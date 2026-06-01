@@ -66,7 +66,8 @@ function App() {
       <a href="#/" aria-current={isHome ? 'page' : undefined}>Home</a>
       <a href={GOOGLE_FORM_URL} target="_blank" rel="noreferrer">Join US</a>
       <a href="#/faq" aria-current={isFaq ? 'page' : undefined}>FAQ</a>
-      <a href="#/soundcloud" aria-current={isSoundcloud ? 'page' : undefined}>Sound Cloud</a>
+      <a href="#/soundcloud" aria-current={isSoundcloud ? 'page' : undefined}>Playlist
+    </a>
     </nav>
   )
 
