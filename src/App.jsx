@@ -1,6 +1,5 @@
-import { useEffect, useMemo, useState } from 'react'
-import { Col, Container, Row, Stack } from 'react-bootstrap'
-import { useRef } from 'react'
+import { useEffect, useMemo, useRef, useState } from 'react'
+import { Col, Container, Row } from 'react-bootstrap'
 import { FaInstagram, FaSoundcloud } from 'react-icons/fa'
 import { MorphingText } from './components/MorphingText'
 import { ShimmerButton } from './components/ShimmerButton'
@@ -18,8 +17,20 @@ const companyLogos = [
   { name: 'Cisco', icon: 'cisco' },
 ]
 
-const GOOGLE_FORM_URL = 'https://forms.gle/REPLACE_WITH_FORM_ID'
-const SOUNDCLOUD_SET_URL = 'https://soundcloud.com/your-account/sets/intern-kickoff-set'
+const RESERVE_SPOT_URL = 'https://www.eventbrite.com/e/REPLACE_WITH_EVENT_ID'
+const SOUNDCLOUD_SET_URL = 'https://soundcloud.com/mack-thompson-951646633/sets/intern-kickoff?si=dbb96087d5ee4e90a386f88a1db5fd96&utm_source=clipboard&utm_medium=text&utm_campaign=social_sharing'
+const DJ_SOCIAL_LINKS = [
+  {
+    label: 'Instagram',
+    href: 'https://instagram.com/djtokenz',
+    Icon: FaInstagram,
+  },
+  {
+    label: 'SoundCloud',
+    href: SOUNDCLOUD_SET_URL,
+    Icon: FaSoundcloud,
+  },
+]
 
 function preloadImage(src) {
   return new Promise((resolve) => {
@@ -38,8 +49,8 @@ function nextFrame() {
 
 function getRouteFromHash() {
   const hash = window.location.hash.replace(/^#\/?/, '').toLowerCase()
-  if (hash === 'faq') return 'faq'
-  if (hash === 'soundcloud') return 'soundcloud'
+  if (hash === 'info' || hash === 'faq') return 'info'
+  if (hash === 'setlist' || hash === 'soundcloud') return 'setlist'
   return 'home'
 }
 
@@ -97,22 +108,22 @@ function App() {
   const essentials = [
     'DJ TOKENZ',
     'HOTDOGS + EATS',
-    '6-27-26, 1:00 - 5:00 PM, ',
-    'DT MOUNTAINVIEW BACKYARD',
-    "SF AFTER PARTY"
+    'DATE TBD; 1:00 - 5:00 PM ',
+    'DT MOUNTAINVIEW',
+    'SF AFTER PARTY',
   ]
 
-  const isFaq = route === 'faq'
-  const isSoundcloud = route === 'soundcloud'
+  const isInfo = route === 'info'
+  const isSetlist = route === 'setlist'
   const isHome = route === 'home'
 
   const siteNav = (
     <nav className="hero-nav" aria-label="Primary">
       <a href="#/" aria-current={isHome ? 'page' : undefined}>Home</a>
-      <a href={GOOGLE_FORM_URL} target="_blank" rel="noreferrer">Join US</a>
-      <a href="#/faq" aria-current={isFaq ? 'page' : undefined}>FAQ</a>
-      <a href="#/soundcloud" aria-current={isSoundcloud ? 'page' : undefined}>Playlist
-    </a>
+   
+      <a href="#/info" aria-current={isInfo ? 'page' : undefined}>INFO</a>
+      
+      <a href="#/setlist" aria-current={isSetlist ? 'page' : undefined}>SETLIST</a>
     </nav>
   )
 
@@ -121,8 +132,7 @@ function App() {
       {!isInitialReady && (
         <div className="app-loader" role="status" aria-live="polite" aria-label="Loading event page">
           <div className="app-loader-inner">
-            <span className="app-loader-mark">IK</span>
-            <span className="app-loader-text">Loading kickoff...</span>
+            <span className="app-loader-mark"></span>
           </div>
         </div>
       )}
@@ -134,7 +144,7 @@ function App() {
         </Container>
       </div>
 
-      {!isFaq && !isSoundcloud && (
+      {!isInfo && !isSetlist && (
       <header className="hero-section" style={{ '--hero-bg-image': `url(${heroBackgroundUrl})` }}>
         <div className="hero-grid">
           <div className="hero-zone hero-zone-top">
@@ -165,9 +175,9 @@ function App() {
                 className="reserve-button"
                 shimmerColor="#ffd7a0"
                 shimmerDuration="2.7s"
-                onClick={() => window.open(GOOGLE_FORM_URL, '_blank', 'noopener,noreferrer')}
+                onClick={() => window.open(RESERVE_SPOT_URL, '_blank', 'noopener,noreferrer')}
               >
-                Reserve Free Spot
+                GET FREE SPOT
               </ShimmerButton>
             </div>
           </div>
@@ -208,51 +218,45 @@ function App() {
       </header>
       )}
 
-      {isFaq && (
+      {isInfo && (
         <main className="subpage-shell">
           <Container className="subpage-content">
-            <h1 className="subpage-title">FAQ</h1>
-            <p className="subpage-lead">Quick details for the kickoff. More updates coming soon.</p>
-            <ul className="faq-list">
+            <ul className="faq-list" aria-label="Kickoff metadata">
               <li className="faq-item">
-                <h2>Who can attend?</h2>
-                <p>Bay Area interns and new grads are welcome. Bring a friend in tech.</p>
+                <p>Date TBD from 1:00 PM to 5:00 PM.</p>
               </li>
               <li className="faq-item">
-                <h2>Do I need a ticket?</h2>
-                <p>Yes. Use Join US or Reserve Free Spot to submit the Google Form.</p>
+                <p>Exact address is shared after RSVP.</p>
               </li>
               <li className="faq-item">
-                <h2>What should I wear?</h2>
-                <p>Casual summer fit. You will be standing and dancing, so wear comfortable shoes.</p>
+                <p>The first N people to reserve are added to the Slack channel and get an Eventbrite ticket.</p>
               </li>
               <li className="faq-item">
-                <h2>Is this free?</h2>
-                <p>Yes, entry is free with approved RSVP.</p>
+                <p>Girls do not need a ticket.</p>
               </li>
+              <li className="faq-item">
+                <p> BYOB but food provided</p>
+              </li>
+              <li className="faq-item">
+                <p>After Party: Caltrain to Downtown SF, hit a club/rave, then split Ubers back to Mountain View late night.</p>
+              </li>
+            
             </ul>
+
+        
           </Container>
         </main>
       )}
 
-      {isSoundcloud && (
-        <main className="subpage-shell">
-          <Container className="subpage-content">
-            <h1 className="subpage-title">SoundCloud</h1>
-            <p className="subpage-lead">Set playlist and requests for the party.</p>
-            <div className="soundcloud-frame-wrap">
-              <iframe
-                title="Intern Kickoff SoundCloud Set"
-                src={soundcloudEmbedUrl}
-                allow="autoplay"
-                loading="lazy"
-              />
-            </div>
-            <div className="soundcloud-actions">
-              <a className="soundcloud-link" href={SOUNDCLOUD_SET_URL} target="_blank" rel="noreferrer">Open Playlist on SoundCloud</a>
-              <a className="soundcloud-link request-link" href={GOOGLE_FORM_URL} target="_blank" rel="noreferrer">Request a Song</a>
-            </div>
-          </Container>
+      {isSetlist && (
+        <main className="setlist-shell" aria-label="Setlist">
+          <iframe
+            className="setlist-iframe"
+            title="Intern Kickoff SoundCloud Set"
+            src={soundcloudEmbedUrl}
+            allow="autoplay"
+            loading="lazy"
+          />
         </main>
       )}
       </div>
