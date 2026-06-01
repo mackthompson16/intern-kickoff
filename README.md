@@ -29,9 +29,9 @@ npm run dev
 
 ## GitHub Pages Deploy
 
-1. Create a GitHub repo named `bay-area-intern-kickoff`.
-2. Update `homepage` in `package.json` with your username.
-3. If your repo name differs, update `base` in `vite.config.js`.
+1. Ensure your GitHub repo is `intern-kickoff` under `mackthompson16`.
+2. Confirm `homepage` in `package.json` is `https://mackthompson16.github.io/intern-kickoff`.
+3. Confirm `base` in `vite.config.js` is `/intern-kickoff/`.
 4. Deploy:
 
 ```bash
