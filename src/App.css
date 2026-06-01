@@ -519,7 +519,7 @@
   }
 }
 
-@media (max-height: 860px) {
+@media (max-height: 860px) and (min-width: 901px) {
   .hero-section {
     padding: 14px 0;
   }
@@ -548,9 +548,41 @@
 }
 
 @media (max-width: 640px) {
-  .hero-top,
+  .hero-section {
+    padding: 4px 0 6px;
+  }
+
+  .hero-top {
+    padding: 0 !important;
+    margin: 0 !important;
+    border-radius: 0;
+    min-height: 0;
+  }
+
+  .hero-top.container {
+    padding-left: 0.35rem;
+    padding-right: 0.35rem;
+  }
+
   .hero-bottom {
     padding: 0.8rem;
+  }
+
+  .hero-morph {
+    margin: 0;
+  }
+
+  .morphing-text {
+    margin: 0;
+    padding: 0;
+    height: clamp(1.9rem, 9.2vw, 2.3rem);
+    font-size: clamp(1.8rem, 8.9vw, 2.2rem);
+    line-height: 1;
+  }
+
+  .morph-word {
+    margin: 0;
+    padding: 0;
   }
 
   .logo-ticker {
