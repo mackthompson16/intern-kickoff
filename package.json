@@ -1,0 +1,42 @@
+{
+  "name": "bay-area-intern-kickoff",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "homepage": "https://YOUR_GITHUB_USERNAME.github.io/bay-area-intern-kickoff",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "lint": "eslint .",
+    "preview": "vite preview",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d dist"
+  },
+  "dependencies": {
+    "@tippyjs/react": "^4.2.6",
+    "aos": "^2.3.4",
+    "bootstrap": "^5.3.8",
+    "dayjs": "^1.11.21",
+    "motion": "^12.40.0",
+    "react": "^19.2.6",
+    "react-bootstrap": "^2.10.10",
+    "react-countdown": "^2.3.6",
+    "react-dom": "^19.2.6",
+    "react-icons": "^5.6.0",
+    "react-parallax-tilt": "^1.7.329",
+    "react-qr-code": "^2.0.21",
+    "react-toastify": "^11.1.0"
+  },
+  "devDependencies": {
+    "@eslint/js": "^10.0.1",
+    "@types/react": "^19.2.14",
+    "@types/react-dom": "^19.2.3",
+    "@vitejs/plugin-react": "^6.0.1",
+    "eslint": "^10.3.0",
+    "eslint-plugin-react-hooks": "^7.1.1",
+    "eslint-plugin-react-refresh": "^0.5.2",
+    "gh-pages": "^6.3.0",
+    "globals": "^17.6.0",
+    "vite": "^8.0.12"
+  }
+}

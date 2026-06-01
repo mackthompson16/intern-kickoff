@@ -1,0 +1,40 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Space+Grotesk:wght@400;500;600;700&display=swap');
+@import url('https://unpkg.com/tippy.js@6/dist/tippy.css');
+@import url('https://unpkg.com/react-toastify@11/dist/ReactToastify.css');
+
+:root {
+  font-family: 'Space Grotesk', sans-serif;
+  line-height: 1.45;
+  font-weight: 400;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background: #f4f7ef;
+  color: #13281a;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  background:
+    radial-gradient(circle at 90% 18%, rgba(241, 178, 79, 0.18), transparent 38%),
+    radial-gradient(circle at 7% 80%, rgba(55, 115, 84, 0.12), transparent 34%),
+    #f4f7ef;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: 'Bebas Neue', 'Space Grotesk', sans-serif;
+  letter-spacing: 0.03em;
+}
+
+#root {
+  min-height: 100svh;
+}
