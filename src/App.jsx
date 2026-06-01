@@ -71,7 +71,7 @@ function App() {
     [],
   )
   const soundcloudEmbedUrl = useMemo(
-    () => `https://w.soundcloud.com/player/?url=${encodeURIComponent(SOUNDCLOUD_SET_URL)}&color=%2313220f&auto_play=false&hide_related=false&show_comments=false&show_user=true&show_reposts=false&show_teaser=true&visual=true`,
+    () => `https://w.soundcloud.com/player/?url=${encodeURIComponent(SOUNDCLOUD_SET_URL)}&color=%2313220f&auto_play=false&hide_related=false&show_comments=false&show_user=true&show_reposts=false&show_teaser=false&show_artwork=true&visual=false`,
     [],
   )
 
